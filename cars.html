@@ -7,30 +7,36 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Document</title>
 </head>
-<body>
+<body style="background-color: #E7CBCB;">
     <div class="container">
       <div class="row pt-5 pb-5 ">
         <div class="col-md-1">
-            <button onclick="viewallcars()" class="btn btn-outline-primary">Allbrandes</button>
+            <button onclick="viewallcars()" class="btn btn-outline-dark">Allbrandes</button>
         </div>
         <div class="col-md-1">
-            <button onclick="Jaguarmodel()" class="btn btn-outline-primary">Jaguar</button>
+            <button onclick="Jaguarmodel()" class="btn btn-outline-dark">Jaguar</button>
         </div>
         <div class="col-md-1">
-          <button onclick="mercedesmodel()" class="btn btn-outline-primary">Mercedes</button>
+          <button onclick="mercedesmodel()" class="btn btn-outline-dark">Mercedes</button>
         </div>
         <div class="col-md-1">
-            <button onclick="volvomodel()" class="btn btn-outline-primary">volvo</button>
+            <button onclick="volvomodel()" class="btn btn-outline-dark">volvo</button>
         </div>
         <div class="col-md-1">
-            <button onclick="lexusmodel()" class="btn btn-outline-primary">lexus</button>
+            <button onclick="lexusmodel()" class="btn btn-outline-dark">lexus</button>
         </div>
         <div class="col-md-1">
-          <button onclick="Maseratimodel()" class="btn btn-outline-primary">Maserati</button>
+          <button onclick="Maseratimodel()" class="btn btn-outline-dark">Maserati</button>
       </div>
+      <div class="col-md-1">
+        <button onclick="cart()" style="margin-left: 575px;" class="btn btn-outline-dark">addcart</button>
+    </div>
+    <div class="col-md-1">
+      <button onclick="out()" style="margin-left: 550px;" class="btn btn-outline-dark">logout</button>
+  </div>
       </div>
 
-      <div class="row" id="allcars">
+      <div class="row" id="record">
         
       </div>
     </div>
@@ -39,218 +45,267 @@
 <script type="text/javascript">
     let data = [
         {
+            productid: 1,
+             qty : 1,
             rating : "4.8/5&nbsp;&nbsp;|&nbsp;&nbsp;65 rating",
             name : "Mercedes-Benz Maybach S-Class",
-            price : "Rs. 2.69 - 3.40 Crore",
+            price : "2000000",
             image : "https://s3.caradvice.com.au/wp-content/uploads/2017/10/MB_SClass-9.jpg",
             information : "7-9 kmpl&nbsp|&nbsp496-603 bhp",
             category : "Mercedes"
         },
         {
+          productid: 2,
+           qty : 1,
             rating : "4.9/5&nbsp;&nbsp;|&nbsp;&nbsp;70 rating",
             name : "Mercedes-Benz G-Class",
-            price : "Rs. 1.72 - 2.55 Crore",
+            price : "1000000",
             image : "https://www.bosshunting.com.au/wp-content/uploads/2020/03/mercedes-g-class-stronger-than-time.jpg",
             information : "5 Star SafetY&nbsp|&nbsp6-9 kmpl&nbsp|&nbsp;282-577 bhp",
             category : "Mercedes"
         },
         {
+          productid: 3,
+          qty : 1,
             rating : "4.1/5&nbsp;&nbsp;|&nbsp;&nbsp;50 rating",
             name : "Mercedes-Benz AMG E53 Cabriolet",
-            price : "Rs. 1.30 Crore",
+            price : "5000000",
             image : "https://st.automobilemag.com/uploads/sites/11/2018/01/2019-Mercedes-AMG-E-53-Cabriolet_30.jpg",
             information : "5 Star Safety&nbsp;|&nbsp;429 bhp",
             category : "Mercedes"
         },
         {
+          productid: 4,
+           qty : 1,
             rating : "5/5&nbsp;&nbsp;|&nbsp;&nbsp;85 rating",
             name : "Mercedes-Benz AMG EQS",
-            price : "Rs. 2.45 Crore onwards",
+            price : "20,00000",
             image : "https://www.autocar.co.uk/sites/autocar.co.uk/files/styles/gallery_slide/public/images/car-reviews/first-drives/legacy/98-mercedes-eqs-official-reveal-images-side.jpg?itok=fJfKBsCZ",
             information : "250 kmph&nbsp;|&nbsp;Electric",
             category : "Mercedes"
         },
         {
+          productid: 5,
+           qty : 1,
             rating : "4.8/5&nbsp;&nbsp;|&nbsp;&nbsp;40 rating",
             name : "Mercedes-Benz AMG GT 63 S E Performance",
-            price : "Rs. 3.30 Crore",
+            price : "1000000",
             image : "https://avtoplus.mk/wp-content/uploads/2021/09/mercedes-amg-gt-63-s-e-performance-14.jpg",
             information : "639 bhp&nbsp;|&nbsp5 Seater&nbsp;|&nbsp3982 cc",
             category : "Mercedes"
         },
         {
+          productid: 6,
+           qty : 1,
           rating : "3.8/5&nbsp;&nbsp;|&nbsp;&nbsp;40 rating",
             name : "Jaguar E-Pace SUV",
-            price : "Rs. 71.60 - 76.00 Lakh",
+            price : "1000000",
             image : "https://images7.alphacoders.com/885/885775.jpg",
             information : "5 Star Safety&nbsp;|&nbsp;13-19 kmpl&nbsp;|&nbsp;177-247 bhp",
             category : "Jaguar"
         },
         {
+          productid: 7,
+           qty : 1,
           rating : "5/5&nbsp;&nbsp;|&nbsp;&nbsp;10 rating",
             name : "Jaguar I-Paces",
-            price : "Rs. 1.20 Crore",
-            image : "https://performancedrive.com.au/wp-content/uploads/2018/06/Jaguar-I-PACE-S-rear.jpg",
+            price : "10,00000",
+                        image : "https://performancedrive.com.au/wp-content/uploads/2018/06/Jaguar-I-PACE-S-rear.jpg",
             information : "200 kmph&nbsp;|&nbsp;496-603 bhp&nbsp;|&nbsp;4WD / AWD",
             category : "Jaguar"
         },
         {
+          productid: 8,
+           qty : 1,
           rating : "5/5&nbsp;&nbsp;|&nbsp;&nbsp;95 rating",
             name : "Jaguar TCS i-type 6 Formula E race car",
-            price : "Rs. 10 -  15.56 Crore",
+            price : "1000000",
+
             image : "https://th-i.thgim.com/public/incoming/jjols1/article66237894.ece/alternates/LANDSCAPE_1200/Formula%20E.jpg",
             information : "9-10 kmpl|600-892 bhp",
             category : "Jaguar"
         },
         {
+          productid: 9,
+           qty : 1,
           rating : "4.7/5&nbsp;&nbsp;|&nbsp;&nbsp;31 rating",
             name : "Jaguar XF",
-            price : "Rs. 71.60 Lakh",
-            image : "https://tse1.mm.bing.net/th?id=OIP.zwf809K69Q8Qj5zdW3NLhwHaEn&pid=Api&P=0",
+            price : "1000000",
+                        image : "https://tse1.mm.bing.net/th?id=OIP.zwf809K69Q8Qj5zdW3NLhwHaEn&pid=Api&P=0",
             information : "5 Star Safety&nbbsp;|&nbsp;13-19 kmpl&nbsp;|&nbsp;177-247 bhp",
             category : "Jaguar"
         },
         {
+          productid: 10,
+           qty : 1,
            rating : "4.9/5&nbsp;&nbsp;|&nbsp;&nbsp;11 rating",
             name : "Volvo XC90",
-            price : "Rs. 98.50 Lakh",
+            price : "4000000",
             image : "https://tse4.mm.bing.net/th?id=OIP.mHewoua9lbrObPrUWsz_sQHaEK&pid=Api&P=0",
             information : "5 Star Safety&nbsp;|&nbsp;11 kmpl&nbsp;|&nbsp;300 bhp",
             category : "volvo"
         },
         {
+          productid: 11,
+           qty : 1,
           rating :"4./5&nbsp;&nbsp;|&nbsp;&nbsp;20 rating",
           name : "Volvo S90",
-          price : "Rs. 67.90 Lakh",
-          image : "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/whichcar/2016/10/13/7627/2016-Volvo-S90-front.jpg",
+          price : "1000000",
+                    image : "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/whichcar/2016/10/13/7627/2016-Volvo-S90-front.jpg",
           information : "5 Star Safety&nbsp;|&nbsp;14 kmpl&nbsp;|&nbsp;250 bhp",
           category : "volvo"
 
         },
         {
+          productid: 12,
+           qty : 1,
           rating :"4.6/5&nbsp;&nbsp;|&nbsp;&nbsp;50 rating",
           name : "Volvo XC40",
-          price : "s. 46.40 Lakh",
-          image : "https://www.greencarguide.co.uk/wp-content/uploads/2018/02/Volvo-XC40-1500x1000.jpg",
+          price : "1000000",
+                    image : "https://www.greencarguide.co.uk/wp-content/uploads/2018/02/Volvo-XC40-1500x1000.jpg",
           information : "5 Star Safety&nbsp;|&nbsp;14 kmpl&nbsp;|&nbsp;197 bhp",
           category : "volvo"
 
         },
         {
+          productid: 16,
+           qty : 1,
           rating :"4.9/5&nbsp;&nbsp;|&nbsp;&nbsp;70 rating",
           name : "Volvo XC60",
-          price : "Rs. 67.50 Lakh",
-          image : "https://cdn.motor1.com/images/mgl/Lb00R/s1/2018-volvo-xc60-review.jpg",
+          price : "1000000",
+                    image : "https://cdn.motor1.com/images/mgl/Lb00R/s1/2018-volvo-xc60-review.jpg",
           information : "5 Star Safety&nbsp;|&nbsp;12 kmpl&nbsp;|&nbsp;250 bhp",
           category : "volvo"
 
         },
         {
+          productid: 17,
+           qty : 1,
           rating :"4.6/5&nbsp;&nbsp;|&nbsp;&nbsp;50 rating",
           name : "Volvo XC40 Recharge",
-          price : "Rs. 56.90 Lakh",
-          image : "https://www.autocar.co.uk/sites/autocar.co.uk/files/styles/gallery_slide/public/images/car-reviews/long-term-review/legacy/3-volvo-xc40-recharge-t5-2020-lt-hero-rear.jpg?itok=5Cxn1IAD",
+          price : "1000000",
+                    image : "https://www.autocar.co.uk/sites/autocar.co.uk/files/styles/gallery_slide/public/images/car-reviews/long-term-review/legacy/3-volvo-xc40-recharge-t5-2020-lt-hero-rear.jpg?itok=5Cxn1IAD",
           information : "5 Star Safety",
           category : "volvo"
 
         },
         {
+          productid: 18,
+           qty : 1,
           rating :"5/5&nbsp;&nbsp;|&nbsp;&nbsp;10 rating",
-          name : "Lexus RX",
-          price : "Rs. 95.80 Lakh - 1.18 Crore",
-          image : "https://tse2.mm.bing.net/th?id=OIP.L2v9pirHEIhTDdTrRP_9MwHaFj&pid=Api&P=0",
+          price : "1000000",
+                    image : "https://tse2.mm.bing.net/th?id=OIP.L2v9pirHEIhTDdTrRP_9MwHaFj&pid=Api&P=0",
           information : "5 Star Safety&nbsp;|&nbsp;190-268 bhp",
           category : "lexus"
 
         },
         {
+          productid: 19,
+           qty : 1,
           rating :"5/5&nbsp;&nbsp;|&nbsp;&nbsp;10 rating",
           name : "Lexus ES",
-          price : "Rs. 61.60 - 67.90 Lakh",
-          image : "https://tse1.mm.bing.net/th?id=OIP.tF1QpmQeanPf7HCoeFmUzgHaFj&pid=Api&P=0",
+          price : "1000000",
+                    image : "https://tse1.mm.bing.net/th?id=OIP.tF1QpmQeanPf7HCoeFmUzgHaFj&pid=Api&P=0",
           information : "5 Star Safety&nbsp;|&nbsp;22 kmpl&nbsp;|&nbsp;176-215 bhp",
           category : "lexus"
 
         },
         {
+          productid : 20,
+           qty : 1,
           rating :"5.6/5&nbsp;&nbsp;|&nbsp;&nbsp;40 rating",
           name : "Lexus LX",
-          price : "Rs. 2.82 Crore",
-          image : "https://images.hgmsites.net/hug/2019-lexus-lx_100674884_h.jpg",
+          price : "1000000",
+                    image : "https://images.hgmsites.net/hug/2019-lexus-lx_100674884_h.jpg",
           information : "6 kmpl&mbsp;|&nbsp;304 bhp",
           category : "lexus"
 
         },
         {
+          productid: 21,
+           qty : 1,
           rating :"4.5/5&nbsp;&nbsp;|&nbsp;&nbsp;20 rating",
           name : "Lexus NX",
-          price : "Rs. 66.30 - 73.10 Lakh",
-          image : "https://www.automotiveaddicts.com/wp-content/uploads/2014/04/001-2015-lexus-nx-1.jpg",
+          price : "1000000",
+                    image : "https://www.automotiveaddicts.com/wp-content/uploads/2014/04/001-2015-lexus-nx-1.jpg",
           information : "5 Star Safety&nbsp;|&nbsp;17 kmpl&nbsp;|&nbsp;188 bhp",
           category : "lexus"
 
         },
         {
+          productid: 22,
+           qty : 1,
           rating :"4.8/5&nbsp;&nbsp;|&nbsp;&nbsp;12 rating",
           name : "Lexus LC 500h",
-          price : "Rs. 2.28 Crore",
-          image : "https://stat.overdrive.in/wp-content/odgallery/2019/09/53753_2019_Lexus_LC500h_006.jpg",
+          price : "1000000",
+                    image : "https://stat.overdrive.in/wp-content/odgallery/2019/09/53753_2019_Lexus_LC500h_006.jpg",
           information : "14 kmpl&nbsp;|&nbsp;295 bhp",
           category : "exus"
 
         },
         {
+          productid: 23,
+           qty : 1,
           rating :"5.6/5&nbsp;&nbsp;|&nbsp;&nbsp;20 rating",
           name : "Lexus LS",
-          price : "Rs. 1.95 - 2.27 Crore",
+          price : "1000000",
           image : "https://tse2.mm.bing.net/th?id=OIP.nQOiaACUgWyZ4YAvmS4oJwHaE7&pid=Api&P=0",
           information : "15 kmpl&nbsp|&nbsp290-295 bhp",
           category : "lexus"
 
         },
         {
+          productid: 24,
+           qty : 1,
           rating :"4.7/5&nbsp;&nbsp;|&nbsp;&nbsp;12 rating",
           name : "Maserati Ghibli",
-          price : "Rs. 1.20 - 1.99 Crore",
+          price : "1000000",
           image : "https://tse2.mm.bing.net/th?id=OIP.RJ52WglZ3ZLsSnLyyf-u5wHaDv&pid=Api&P=0",
           information : "5 Star Safety&nbsp;|&nbsp;8-16 kmpl&nbsp;|&nbsp;275-581 bhp",
           category : "Maserati"
 
         },
         {
+          id: 25,
+           qty : 1,
           rating :"4.8/5&nbsp;&nbsp;|&nbsp;&nbsp;50 rating",
           name : "Maserati MC20",
-          price : "Rs. 3.65 Crore",
+          price : "1000000",
           image : "https://tse3.mm.bing.net/th?id=OIP.alUADYsEtsuB0BR5892euwHaDz&pid=Api&P=0",
           information : "8 kmpl&nbsp;|&nbsp;621 bhp",
           category : "Maserati"
 
         },
         {
+          productid: 26,
+           qty : 1,
           rating :"4.5/5&nbsp;&nbsp;|&nbsp;&nbsp;18 rating",
           name : "Maserati Levante",
-          price : "Rs. 1.45 - 2.38 Crore",
+          price : "1000000",
           image : "https://tse2.mm.bing.net/th?id=OIP.dVs8n9OseZ1-fro6zBf6igHaEA&pid=Api&P=0",
           information : "9-10 kmpl&nbsp;|&nbsp;271-430 bhp",
           category : "Maserati"
 
         },
         {
+          productid: 27,
+           qty : 1,
           rating :"4.4/5&nbsp;&nbsp;|&nbsp;&nbsp;10 rating",
           name : "Maserati Quattroporte",
-          price : "Rs. 1.80 - 2.32 Crore",
+          price : "1000000",
           image : "https://tse1.mm.bing.net/th?id=OIP.QRSGYoUv8W5z6Fc89Wm-QAHaEK&pid=Api&P=0&w=300&h=300",
           information : "5 Star Safety&nbsp;|&nbsp;8-14 kmpl&nbsp;|&nbsp;275-572 bhp",
           category : "Maserati"
 
         },
     ]
-
-    viewallcars();
-    function viewallcars()
+    
+    
+  function viewallcars()
     {
+      localStorage.setItem('product',JSON.stringify(data));
         let tbl = "";
-        data.map((val)=>{
+        data.map((val,i)=>{
             tbl += `
             <div class="col-md-6 pb-4">
               <div class="col">
@@ -265,7 +320,7 @@
                     <p class="card-text">${val.information}</p>
                     <p class="card-text">${val.category}</p>
                     <div class="d-grid gap-2 col-6 mx-auto">
-                      <button type="button" class="btn btn-outline-primary">GET BEST OFFERS</button>
+                      <button type="button" class="btn btn-outline-dark" id="btn1(${val.productid})" onclick="order(${val.productid})" >GET BEST OFFERS</button>
                     </div>
                   </div>
                 </div>
@@ -274,189 +329,238 @@
             `
         })
 
-        document.getElementById('allcars').innerHTML = tbl;
+        document.getElementById('record').innerHTML = tbl;
+    }
+    viewallcars();
+
+    const order = (pid) => {
+        
+        let cart = [];
+
+        let allproduct = JSON.parse(localStorage.getItem('product'));
+        let button =  document.getElementById('btn1');
+       allproduct.map((val)=>{
+           if(val.productid == pid)
+           {
+              let obj = {
+                image : val.image,
+                name : val.name,
+                rating : val.rating,
+                price : val.price,
+                qty : val.qty,
+                productid : val.productid,
+              }
+
+              if(localStorage.getItem('cart') === null  || localStorage.getItem('cart') ===undefined)
+              {
+                cart.push(obj)
+                localStorage.setItem('cart',JSON.stringify(cart));
+              }
+              else{
+                  let val = JSON.parse(localStorage.getItem('cart'));
+                  val.push(obj);
+                  localStorage.setItem('cart',JSON.stringify(val));
+              } 
+           }
+       })
+       alert("order successfully")
+       if(pid){
+        let btn1 = document.getElementById('btn' + pid).style.display = "none";
+       }
+
+
     }
 
-    function mercedesmodel(){
-        let category = "Mercedes";
-        let tbl = "";
-        data.map((val)=>{
+    const cart = () => {
+        window.location.href = "cart.html";
+    }
 
-            if(val.category == category)
-            {
-                tbl += `
-              <div class="col-md-6 pb-4">
-              <div class="col">
-                <div class="card">
-                  <img src="${val.image}" class="card-img-top" style="height:400px;object-fit:cover" alt="car"/>
-                  <div class="card-body">
-                    <div class="row">
-                     <p>${val.rating}</p>
-                    </div>
-                    <h3 class="card-title">${val.name}</h3>
-                    <h5 class="card-text">${val.price}</h5>
-                    <p class="card-text">${val.information}</p>
-                    <p class="card-text">${val.category}</p>
-                    <div class="d-grid gap-2 col-6 mx-auto">
-                      <button type="button" class="btn btn-outline-primary">GET BEST OFFERS</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-                `
-            }
+    const out = () =>{
+      localStorage.removeItem('checkUserLogin');
+      window.location.href="pages-login.html"
+    }
+    
+    // function mercedesmodel(){
+    //     let category = "Mercedes";
+    //     let tbl = "";
+    //     data.map((val)=>{
+
+    //         if(val.category == category)
+    //         {
+    //             tbl += `
+    //           <div class="col-md-6 pb-4">
+    //           <div class="col">
+    //             <div class="card">
+    //               <img src="${val.image}" class="card-img-top" style="height:400px;object-fit:cover" alt="car"/>
+    //               <div class="card-body">
+    //                 <div class="row">
+    //                  <p>${val.rating}</p>
+    //                 </div>
+    //                 <h3 class="card-title">${val.name}</h3>
+    //                 <h5 class="card-text">${val.price}</h5>
+    //                 <p class="card-text">${val.information}</p>
+    //                 <p class="card-text">${val.category}</p>
+    //                 <div class="d-grid gap-2 col-6 mx-auto">
+    //                   <button type="button"  class="btn btn-outline-dark" onclick="">GET BEST OFFERS</button>
+    //                 </div>
+    //               </div>
+    //             </div>
+    //           </div>
+    //         </div>
+    //             `
+    //         }
             
-        })
-        document.getElementById('allcars').innerHTML = tbl;
-    }
+    //     })
+    //     document.getElementById('record').innerHTML = tbl;
+    // }
 
 
 
-    function Jaguarmodel(){
-        let category = "Jaguar";
-        let tbl = "";
-        data.map((val)=>{
+    // function Jaguarmodel(){
+    //     let category = "Jaguar";
+    //     let tbl = "";
+    //     data.map((val)=>{
 
-            if(val.category == category)
-            {
-                tbl += `
-              <div class="col-md-6 pb-4">
-              <div class="col">
-                <div class="card">
-                  <img src="${val.image}" class="card-img-top" style="height:400px;object-fit:cover" alt="car"/>
-                  <div class="card-body">
-                    <div class="row">
-                     <p>${val.rating}</p>
-                    </div>
-                    <h3 class="card-title">${val.name}</h3>
-                    <h5 class="card-text">${val.price}</h5>
-                    <p class="card-text">${val.information}</p>
-                    <p class="card-text">${val.category}</p>
-                    <div class="d-grid gap-2 col-6 mx-auto">
-                      <button type="button" class="btn btn-outline-primary">GET BEST OFFERS</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-                `
-            }
+    //         if(val.category == category)
+    //         {
+    //             tbl += `
+    //           <div class="col-md-6 pb-4">
+    //           <div class="col">
+    //             <div class="card">
+    //               <img src="${val.image}" class="card-img-top" style="height:400px;object-fit:cover" alt="car"/>
+    //               <div class="card-body">
+    //                 <div class="row">
+    //                  <p>${val.rating}</p>
+    //                 </div>
+    //                 <h3 class="card-title">${val.name}</h3>
+    //                 <h5 class="card-text">${val.price}</h5>
+    //                 <p class="card-text">${val.information}</p>
+    //                 <p class="card-text">${val.category}</p>
+    //                 <div class="d-grid gap-2 col-6 mx-auto">
+    //                   <button type="button" class="btn btn-outline-dark">GET BEST OFFERS</button>
+    //                 </div>
+    //               </div>
+    //             </div>
+    //           </div>
+    //         </div>
+    //             `
+    //         }
             
-        })
-        document.getElementById('allcars').innerHTML = tbl;
-    }
+    //     })
+    //     document.getElementById('record').innerHTML = tbl;
+    // }
 
     
 
 
-    function volvomodel(){
-        let category = "volvo";
-        let tbl = "";
-        data.map((val)=>{
+    // function volvomodel(){
+    //     let category = "volvo";
+    //     let tbl = "";
+    //     data.map((val)=>{
 
-            if(val.category == category)
-            {
-                tbl += `
-              <div class="col-md-6 pb-4">
-              <div class="col">
-                <div class="card">
-                  <img src="${val.image}" class="card-img-top" style="height:400px;object-fit:cover" alt="car"/>
-                  <div class="card-body">
-                    <div class="row">
-                     <p>${val.rating}</p>
-                    </div>
-                    <h3 class="card-title">${val.name}</h3>
-                    <h5 class="card-text">${val.price}</h5>
-                    <p class="card-text">${val.information}</p>
-                    <p class="card-text">${val.category}</p>
-                    <div class="d-grid gap-2 col-6 mx-auto">
-                      <button type="button" class="btn btn-outline-primary">GET BEST OFFERS</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-                `
-            }
+    //         if(val.category == category)
+    //         {
+    //             tbl += `
+    //           <div class="col-md-6 pb-4">
+    //           <div class="col">
+    //             <div class="card">
+    //               <img src="${val.image}" class="card-img-top" style="height:400px;object-fit:cover" alt="car"/>
+    //               <div class="card-body">
+    //                 <div class="row">
+    //                  <p>${val.rating}</p>
+    //                 </div>
+    //                 <h3 class="card-title">${val.name}</h3>
+    //                 <h5 class="card-text">${val.price}</h5>
+    //                 <p class="card-text">${val.information}</p>
+    //                 <p class="card-text">${val.category}</p>
+    //                 <div class="d-grid gap-2 col-6 mx-auto">
+    //                   <button type="button" class="btn btn-outline-dark">GET BEST OFFERS</button>
+    //                 </div>
+    //               </div>
+    //             </div>
+    //           </div>
+    //         </div>
+    //             `
+    //         }
             
-        })
-        document.getElementById('allcars').innerHTML = tbl;
-    }
+    //     })
+    //     document.getElementById('record').innerHTML = tbl;
+    // }
 
 
 
-    function lexusmodel(){
-        let category = "lexus";
-        let tbl = "";
-        data.map((val)=>{
+    // function lexusmodel(){
+    //     let category = "lexus";
+    //     let tbl = "";
+    //     data.map((val)=>{
 
-            if(val.category == category)
-            {
-                tbl += `
-              <div class="col-md-6 pb-4">
-              <div class="col">
-                <div class="card">
-                  <img src="${val.image}" class="card-img-top" style="height:400px;object-fit:cover" alt="car"/>
-                  <div class="card-body">
-                    <div class="row">
-                     <p>${val.rating}</p>
-                    </div>
-                    <h3 class="card-title">${val.name}</h3>
-                    <h5 class="card-text">${val.price}</h5>
-                    <p class="card-text">${val.information}</p>
-                    <p class="card-text">${val.category}</p>
-                    <div class="d-grid gap-2 col-6 mx-auto">
-                      <button type="button" class="btn btn-outline-primary">GET BEST OFFERS</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-                `
-            }
+    //         if(val.category == category)
+    //         {
+    //             tbl += `
+    //           <div class="col-md-6 pb-4">
+    //           <div class="col">
+    //             <div class="card">
+    //               <img src="${val.image}" class="card-img-top" style="height:400px;object-fit:cover" alt="car"/>
+    //               <div class="card-body">
+    //                 <div class="row">
+    //                  <p>${val.rating}</p>
+    //                 </div>
+    //                 <h3 class="card-title">${val.name}</h3>
+    //                 <h5 class="card-text">${val.price}</h5>
+    //                 <p class="card-text">${val.information}</p>
+    //                 <p class="card-text">${val.category}</p>
+    //                 <div class="d-grid gap-2 col-6 mx-auto">
+    //                   <button type="button" class="btn btn-outline-dark">GET BEST OFFERS</button>
+    //                 </div>
+    //               </div>
+    //             </div>
+    //           </div>
+    //         </div>
+    //             `
+    //         }
             
-        })
-        document.getElementById('allcars').innerHTML = tbl;
-    }
+    //     })
+    //     document.getElementById('record').innerHTML = tbl;
+    // }
 
 
 
 
-    function Maseratimodel(){
-        let category = "Maserati";
-        let tbl = "";
-        data.map((val)=>{
+    // function Maseratimodel(){
+    //     let category = "Maserati";
+    //     let tbl = "";
+    //     data.map((val)=>{
 
-            if(val.category == category)
-            {
-                tbl += `
-              <div class="col-md-6 pb-4">
-              <div class="col">
-                <div class="card">
-                  <img src="${val.image}" class="card-img-top" style="height:400px;object-fit:cover" alt="car"/>
-                  <div class="card-body">
-                    <div class="row">
-                     <p>${val.rating}</p>
-                    </div>
-                    <h3 class="card-title">${val.name}</h3>
-                    <h5 class="card-text">${val.price}</h5>
-                    <p class="card-text">${val.information}</p>
-                    <p class="card-text">${val.category}</p>
-                    <div class="d-grid gap-2 col-6 mx-auto">
-                      <button type="button" class="btn btn-outline-primary">GET BEST OFFERS</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-                `
-            }
+    //         if(val.category == category)
+    //         {
+    //             tbl += `
+    //           <div class="col-md-6 pb-4">
+    //           <div class="col">
+    //             <div class="card">
+    //               <img src="${val.image}" class="card-img-top" style="height:400px;object-fit:cover" alt="car"/>
+    //               <div class="card-body">
+    //                 <div class="row">
+    //                  <p>${val.rating}</p>
+    //                 </div>
+    //                 <h3 class="card-title">${val.name}</h3>
+    //                 <h5 class="card-text">${val.price}</h5>
+    //                 <p class="card-text">${val.information}</p>
+    //                 <p class="card-text">${val.category}</p>
+    //                 <div class="d-grid gap-2 col-6 mx-auto">
+    //                   <button type="button" onclick=class="btn btn-outline-dark">GET BEST OFFERS</button>
+    //                 </div>
+    //               </div>
+    //             </div>
+    //           </div>
+    //         </div>
+    //             `
+    //         }
             
-        })
-        document.getElementById('allcars').innerHTML = tbl;
-    }
+    //     })
+    //     document.getElementById('record').innerHTML = tbl;
+    // }
 </script>
+<!-- <script src="./watchman.js"></script> -->
 
 <!-- <div class="col-md-6 pb-4">
   <div class="col">

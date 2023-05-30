@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="5">
+        <tr>
+            <td>IMAGES</td>
+            <td>NAME</td>
+            <td>RATING</td>
+            <td>PRICE</td>
+            <td>QTY</td>
+            <td>TOTAL</td>
+            <td>ACTION</td>
+
+        </tr>
+    
+        <tbody id="cartdata">
+
+        </tbody>
+    </table>
+    <div>
+        <h3 id="total1" style="margin: 2%;"> total :- </h3>
+    </div>
+</div>
+<button  type="button" onclick="co()" class="btn btn-success">Continue order</button>
+</div>
+</body>
+</html>
+
+
+<script type="text/javascript">
+    const viewallcars = () => {
+        let allcart = JSON.parse(localStorage.getItem('cart'));
+        let tbl = "";
+        sum=0;
+       
+        allcart.map((val)=>{
+                 sum= sum+ val.price* val.qty;
+            tbl += `
+                    <tr>
+                        <td><img src='${val.image}' width="200"/></td>
+                        <td>${val.name}</td>
+                        <td>${val.rating}</td>
+                        <td id="totol">${val.price}</td>
+                        <td><input type="number" id="total${val.productid}" value="${val.qty}"/></td>                        
+                        // <td>${val.price * val.qty}</td>
+                        <td>
+                            <button class="btn btn-danger" id="delete"  onclick="deleteData(${val.productid})">Delete</button>
+                            <button class="btn btn-primary" id="total" onclick="editdata(${val.productid})">Edit</button>
+                        </td>
+                    </tr>
+                   `
+        })
+        document.getElementById('cartdata').innerHTML = tbl;
+        document.getElementById('total1').innerHTML="TOTAL :- " + sum;
+    }
+    viewallcars();
+    const deleteData = (pid) => {
+        
+        let allcart = JSON.parse(localStorage.getItem('cart'));
+    
+        let ans = allcart.filter((val)=>{
+            return val.productid != pid;
+        })
+        localStorage.setItem('cart',JSON.stringify(ans));
+        alert("order successfully delete");
+        viewallcars();
+    }
+    function editdata(pid) {
+        let qty = document.getElementById('total_' + pid).value;
+        console.log("editdata");
+
+        if (qty == 0 || qty < 0) {
+            let error = `
+                        <div class="alert alert-danger" role="alert">
+                            you not input 0 and - item
+                        </div>
+                      `
+
+            document.getElementById('err').innerHTML = error;
+            return false;
+
+        }
+        else {
+            let val = JSON.parse(localStorage.getItem('cart'));
+
+            for (let i in val) {
+                if (val[i].productid == pid) {
+                    val[i].qty = qty;
+                }
+
+                localStorage.setItem('cart', JSON.stringify(val));
+            }
+            alert("Your cart successfully update!");
+            viewcart();
+        }
+    }
+    // const editdata = (pid) => {
+    //     let qty = document.getElementById('total'+pid).value;
+
+    //     if(qty == 0 || qty < 0){
+    //         let error =`
+    //         <div class="alert alert-danger" role="alert">
+    //             you not input 0 and -item
+    //             `
+    //             document.getElementById('err').innerHTML = error;
+    //             return false;
+    //     }
+    //     else{
+    //         let val = JSON.parse(localStorage.getItem('cart'));
+
+    //         for(let i in val){
+    //             if(val[i].productid == productid){
+    //                 val[i].qty = qty;
+
+    //         }
+    //         localStorage.setItem('cart',JSON.stringify(val));
+    //     }
+    //     alert("your cart updated");
+       
+    // }
+    ////////
+    const co = () =>{
+        window.location.href="cars.html";
+    }
+     viewallcars();
+        
+
+</script>
+<!-- <script src="./watchman.js"></script> -->
